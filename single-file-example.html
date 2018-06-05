@@ -8,26 +8,32 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="example"></div>
+    <div id="program"></div>
 
     <script type="text/babel">
-    class Block extends React.Component {
+
+    class Game extends React.Component {
       render() {
-        const num = 20;
-        return (
-          <div>
-          <h3>It is {num}</h3>
-          <p>Простой текст</p>
-          </div>);
-  }
-}
-      const place = document.getElementById("example");
+          return (
+            <div>
+              <h1>{this.props.name}</h1>
+              <h2>{this.props.age}</h2>
+            </div>
+          );
+        }
+      }
+
+
+
+      const app = document.getElementById("program");
 
       ReactDOM.render (
         <div>
-          <Block />
+          <Game name="Mortal Combat" age="17+"/>
+          <Game name="Forza" age="18+"/>
+          <Game name="GTA 5" age="16+"/>
         </div>,
-        place
+        app
       );
     </script>
   </body>
