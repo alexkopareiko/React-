@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div id="program"></div>
+
+    <script type="text/babel">
+      class Task extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          edit: false,
+        };
+      };
+        edit = () => {
+          this.setState ({edit: true})
+        }
+        remove(){
+          alert ("Нажата кнопка удалить");
+        }
+        save = () => {
+            this.setState ({edit: false})
+        }
+        rendNorm(){
+          return (
+              <div className="box">
+                <div className="text">{this.props.children}</div>
+                <button onClick={this.edit} classname="btn light">Редактировать</button>
+                <button onClick={this.remove} classname="btn red">Удалить</button>
+              </div>
+            );
+        }
+        rendEdit(){
+
+          return (
+              <div className="box">
+                <textarea defaultValue={this.props.cheldren}></textarea>
+                <button onClick={this.save} classname="btn success">Сохранить</button>
+              </div>
+            );
+        }
+        render() {
+          if (this.state.edit) {
+            return this.rendEdit();
+          }
+          else{
+            return this.rendNorm();
+
+          }
+          }
+      }
+
+
+
+      const app = document.getElementById("program");
+
+      ReactDOM.render (
+        <div className="field">
+          <Task>1</Task>
+          <Task>2</Task>
+          <Task>3</Task>
+        </div>, app);
+    </script>
+  </body>
+</html>
