@@ -73,13 +73,27 @@
               ]
           };
         };
+      deleteBlock (i){
+        var arr = this.state.tasks;
+        arr.splice(i, 1);
+        this.setState ({tasks: arr});
+      }
+      updateText(text, i){
+        var arr = this.state.tasks;
+        arr[i] = text;
+        this.SetState({tasks: arr});
+      }
+       eachTask (item, i) {
+         return (
+           <Task key={i} index={i}>
+            {item}
+           </Task>);
+       }
        render() {
          return(
            <div className="field">
             {
-              this.state.tasks.map(function (item,i) {
-                return (<Task key={i}>{item}</Task>);
-              })
+              this.state.tasks.map(this.eachTask)
             }
            </div>
          );
