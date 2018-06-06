@@ -29,6 +29,8 @@
           alert ("Нажата кнопка удалить");
         }
         save = () => {
+            var value = this.refs.newTxt.value;
+            alert(value);
             this.setState ({edit: false})
         }
         rendNorm(){
@@ -44,7 +46,7 @@
 
           return (
               <div className="box">
-                <textarea defaultValue={this.props.cheldren}></textarea>
+                <textarea ref="newTxt" defaultValue={this.props.cheldren}></textarea>
                 <button onClick={this.save} classname="btn success">Сохранить</button>
               </div>
             );
