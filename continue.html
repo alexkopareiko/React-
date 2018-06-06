@@ -25,20 +25,20 @@
         edit = () => {
           this.setState ({edit: true})
         }
-        remove(){
-          alert ("Нажата кнопка удалить");
+        remove = () => {
+          this.props.deleteBlock (this.props.index);
         }
         save = () => {
-            var value = this.refs.newTxt.value;
-            alert(value);
+
+            this.props.update(this.refs.newTxt.value, this.props.index);
             this.setState ({edit: false})
         }
         rendNorm(){
           return (
               <div className="box">
                 <div className="text">{this.props.children}</div>
-                <button onClick={this.edit} classname="btn light">Редактировать</button>
-                <button onClick={this.remove} classname="btn red">Удалить</button>
+                <button onClick={this.edit} className="btn light">Редактировать</button>
+                <button onClick={this.remove} className="btn red">Удалить</button>
               </div>
             );
         }
@@ -47,7 +47,7 @@
           return (
               <div className="box">
                 <textarea ref="newTxt" defaultValue={this.props.cheldren}></textarea>
-                <button onClick={this.save} classname="btn success">Сохранить</button>
+                <button onClick={this.save} className="btn success">Сохранить</button>
               </div>
             );
         }
@@ -73,19 +73,19 @@
               ]
           };
         };
-      deleteBlock (i){
+      deleteBlock = (i) => {
         var arr = this.state.tasks;
         arr.splice(i, 1);
         this.setState ({tasks: arr});
       }
-      updateText(text, i){
+      updateText = (text, i) => {
         var arr = this.state.tasks;
         arr[i] = text;
-        this.SetState({tasks: arr});
+        this.setState({tasks: arr});
       }
-       eachTask (item, i) {
+       eachTask = (item, i) => {
          return (
-           <Task key={i} index={i}>
+           <Task key={i} index={i} update={this.updateText} deleteBlock={this.deleteBlock}>
             {item}
            </Task>);
        }
