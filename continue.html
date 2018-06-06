@@ -62,16 +62,33 @@
           }
       }
 
-
+      class Field extends React.Component{
+        constructor(props) {
+          super(props);
+          this.state = {
+            tasks: [
+              'купить молоко',
+              'почистить зубы',
+              'отдохнуть'
+              ]
+          };
+        };
+       render() {
+         return(
+           <div className="field">
+            {
+              this.state.tasks.map(function (item,i) {
+                return (<Task key={i}>{item}</Task>);
+              })
+            }
+           </div>
+         );
+       }
+      }
 
       const app = document.getElementById("program");
 
-      ReactDOM.render (
-        <div className="field">
-          <Task>1</Task>
-          <Task>2</Task>
-          <Task>3</Task>
-        </div>, app);
+      ReactDOM.render (<Field />, app);
     </script>
   </body>
 </html>
