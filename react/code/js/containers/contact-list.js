@@ -3,12 +3,12 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {select} from "../actions/index";
 
-class CarsList extends Component {
+class ContactList extends Component {
 
   showList (){
-    return this.props.cars.map ((car) => {
+    return this.props.contacts.map ((contact) => {
       return (
-        <li onClick={() => this.props.select (car)} key={car.id}>{car.name}</li>
+        <li onClick={() => this.props.select (contact)} key={contact.id}>{contact.name}</li>
       );
     });
   }
@@ -23,7 +23,7 @@ class CarsList extends Component {
 
 function mapStateToProps (state){
   return {
-    cars: state.cars
+    contacts: state.contacts
   };
 }
 
@@ -31,4 +31,4 @@ function matchDispatchToProps (dispatch) {
   return bindActionCreators({select: select}, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(CarsList);
+export default connect(mapStateToProps, matchDispatchToProps)(ContactList);

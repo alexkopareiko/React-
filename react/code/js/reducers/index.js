@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import CarsReducers from './car';
-import ActiveCar from './car-active';
+import ContactReducers from './contact';
+import ActiveContact from './contact-active';
 
 const allReducers = combineReducers ({
-  cars: CarsReducers,
-  active: ActiveCar
+  cars: ContactReducers,
+  active: ActiveContact
 });
 
 export default allReducers;

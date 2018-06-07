@@ -1,7 +1,7 @@
-export const select = (car) => {
+export const select = (contact) => {
 
   return{
-    type: "CAR_SELECTED",
-    payload: car
+    type: "CONTACT_SELECTED",
+    payload: contact
   }
 };
