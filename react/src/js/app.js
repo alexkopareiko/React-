@@ -12,22 +12,14 @@ firebase.initializeApp(config);
 
 }());
 
-var mainText = document.getElementById("mainText");
-var submitBtn = document.getElementById("submitBtn");
-var fireHeading = document.getElementById("fireHeading");
+var mainDiv = document.getElementById("mainDiv");
+var rootRef = firebase.database().ref().child("Users");
 
-var firebaseHeadingRef = firebase.database().ref().child("Heading");
+rootRef.on("child_added", snap => {
 
-firebaseHeadingRef.on('value', function(datasnapshot){
-  fireHeading.innerText = datasnapshot.val();
+  var name = snap.child("Name").val();
+  var email = snap.child("Email").val();
+
+    $("#mainDiv").append(name + email + "<button>Remove</button><br />");
+
 });
-
-function submitClick () {
-
-  var firebaseRef = firebase.database().ref();
-
-  var messageText = mainText.value;
-
-
-  firebaseRef.push().set(messageText);
-}
