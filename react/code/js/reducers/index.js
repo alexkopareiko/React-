@@ -1,10 +1,9 @@
-import {combineReducers} from 'redux';
-import ContactReducers from './contact';
-import ActiveContact from './contact-active';
+import { combineReducers } from 'redux';
 
-const allReducers = combineReducers ({
-  cars: ContactReducers,
-  active: ActiveContact
+import tracks from './tracks';
+import playlists from './playlists';
+
+export default combineReducers({
+  tracks,
+  playlists
 });
-
-export default allReducers;
