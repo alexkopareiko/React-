@@ -1,7 +1,4 @@
-const initialState = [
-  'Smells like spirit',
-  'Enter Sandman'
-]
+const initialState = [];
 
 export default function tracks(state = initialState, action) {
   if (action.type === 'ADD_TRACK') {
@@ -13,4 +10,4 @@ export default function tracks(state = initialState, action) {
     return state;
   }
   return state;
-}
+} 
