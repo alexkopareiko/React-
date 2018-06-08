@@ -12,7 +12,12 @@ import { createStore } from 'redux';
 import App from './App';
 //  import './index.css';
 
-function playlist(state = [], action) {
+const initialState = [
+  'Smells like spirit',
+  'Enter Sandman'
+];
+
+function playlist(state = initialState, action) {
   //console.log(action);
   if (action.type === 'ADD_TRACK') {
     return [
