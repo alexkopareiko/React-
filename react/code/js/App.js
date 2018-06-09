@@ -19,11 +19,11 @@ class App extends Component {
       <div>
         <div>
           <input type="text" ref={(input) => { this.trackInput = input }} />
-          <button onClick={this.addTrack.bind(this)}>Add track</button>
+          <button onClick={this.addTrack.bind(this)}>Добавить контакт</button>
         </div>
         <div>
           <input type="text" ref={(input) => { this.searchInput = input }} />
-          <button onClick={this.findTrack.bind(this)}>Find track</button>
+          <button onClick={this.findTrack.bind(this)}>Найти контакт</button>
         </div>
         <ul>
           {this.props.tracks.map((track, index) =>
