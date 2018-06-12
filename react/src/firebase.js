@@ -14,7 +14,7 @@ firebase.initializeApp(config);
 
 var mainDiv = document.getElementById("mainDiv");
 
-const databaseRef = firebase.database().ref();
+//const databaseRef = firebase.database().ref();
 //export const usersRef = databaseRef.child("Users");
 
 //var rootRef = firebase.database().ref().child("Users");
